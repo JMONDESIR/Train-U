@@ -116,3 +116,17 @@ code {
   background: inherit;
 }
 /* =========================================================== */
+
+.nav-bar {
+
+}
+.pre-navContainer {
+background-color: rgb(131, 131, 131);
+display: flex;
+flex-direction:row-reverse;
+justify-content: space-around;
+}
+.pre-navItem {
+  text-decoration: none;
+  list-style-type: none;
+}
