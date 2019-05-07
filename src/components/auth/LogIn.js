@@ -48,10 +48,7 @@ export default class LogIn extends Component {
                                                                 Login
               </button>
                                                         <button
-                                                                className="_button-traverse pointer pt1 pb1 pl2 pr2"
-                                                        >
-                                                                Signup
-              </button>
+                                                                className="_button-traverse pointer pt1 pb1 pl2 pr2">Signup</button>
                                                 </div>
                                         </form>
                                 </div>

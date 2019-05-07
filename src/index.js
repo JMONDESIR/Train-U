@@ -6,6 +6,7 @@ import './index.css';
 import 'tachyons'
 import 'tachyons/css/tachyons.css'
 
+
 ReactDOM.render(
   <Router>
     <Trainer />
