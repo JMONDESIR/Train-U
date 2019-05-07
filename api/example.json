@@ -1,318 +1,353 @@
 {
-        "users": [
-                {
-                        "name": "Joel",
-                        "email": "joel@example.com",
-                        "Password": 1234,
-                        "id": 1
-                }
-                ],
-                "groups": [
-                        {
-                                "name": "chest",
-                                "img": "",
-                                "id": 1
-                        },
-                        {
-                                "name": "back",
-                                "img": "",
-                                "id": 2
-                        },
-                        {
-                                "name": "shoulders",
-                                "img": "",
-                                "id": 3
-                        },
-                        {
-                                "name": "arms",
-                                "img": "",
-                                "id": 4
-                        },
-                        {
-                                "name": "abs",
-                                "img": "",
-                                "id": 5
-                        },
-                        {
-                                "name": "legs",
-                                "img": "",
-                                "id": 6
-                        },
-                        {
-                                "name": "cardio",
-                                "img": "",
-                                "id": 7
-                        }
-                ],
-                "workouts": [
-                        {
-                                "id": 1,
-                                "name": "Push-Up",
-                                "description": "",
-                                "img": "",
-                                "link": "",
-                                "userId": 1,
-                                "groupId": 1
-                            },
-                            {
-                                "id": 2,
-                                "name": "The Bench Press",
-                                "description": "",
-                                "img": "",
-                                "link": "",
-                                "userId": 1,
-                                "groupId": 1
-                            },
-                            {
-                                "id": 3,
-                                "name": "Dumbell Fly",
-                                "description": "",
-                                "img": "",
-                                "link": "",
-                                "userId": 1,
-                                "groupId": 1
-                            },
-                            {
-                                "id": 4,
-                                "name": "Incline Dumbell Press",
-                                "description": "",
-                                "img": "",
-                                "link": "",
-                                "userId": 1,
-                                "groupId": 1
-                            },
-                            {
-                                "id": 5,
-                                "name": "Bent Over Row",
-                                "description": "",
-                                "img": "",
-                                "link": "",
-                                "userId": 1,
-                                "groupId": 2
-                            },
-                            {
-                                "id": 6,
-                                "name": "Lat Pulldown",
-                                "description": "",
-                                "img": "",
-                                "link": "",
-                                "userId": 1,
-                                "groupId": 2
-                            },
-                            {
-                                "id": 7,
-                                "name": "The Deadlift",
-                                "description": "",
-                                "img": "",
-                                "link": "",
-                                "userId": 1,
-                                "groupId": 2
-                            },
-                            {
-                                "id": 8,
-                                "name": "Barbell Row",
-                                "description": "",
-                                "img": "",
-                                "link": "",
-                                "userId": 1,
-                                "groupId": 2
-                            },
-                            {
-                                "id": 9,
-                                "name": "Overhead Barbell Press",
-                                "description": "",
-                                "img": "",
-                                "link": "",
-                                "userId": 1,
-                                "groupId": 3
-                            },
-                            {
-                                "id": 10,
-                                "name": "Standing Shoulder Fly",
-                                "description": "",
-                                "img": "",
-                                "link": "",
-                                "userId": 1,
-                                "groupId": 3
-                            },
-                            {
-                                "id": 11,
-                                "name": "Seated Dumbell Military Press",
-                                "description": "",
-                                "img": "",
-                                "link": "",
-                                "userId": 1,
-                                "groupId": 3
-                            },
-                            {
-                                "id": 12,
-                                "name": "Bicep Dumbell Curl",
-                                "description": "",
-                                "img": "",
-                                "link": "",
-                                "userId": 1,
-                                "groupId": 4
-                            },
-                            {
-                                "id": 13,
-                                "name": "Tricep Dips",
-                                "description": "",
-                                "img": "",
-                                "link": "",
-                                "userId": 1,
-                                "groupId": 4
-                            },
-                            {
-                                "id": 14,
-                                "name": "EZ-Bar Curl",
-                                "description": "",
-                                "img": "",
-                                "link": "",
-                                "userId": 1,
-                                "groupId": 4
-                            },
-                            {
-                                "id": 15,
-                                "name": "Tricep Pushdown",
-                                "description": "",
-                                "img": "",
-                                "link": "",
-                                "userId": 1,
-                                "groupId": 4
-                            },
-                            {
-                                "id": 16,
-                                "name": "Lying Crunch",
-                                "description": "",
-                                "img": "",
-                                "link": "",
-                                "userId": 1,
-                                "groupId": 5
-                            },
-                            {
-                                "id": 17,
-                                "name": "Seated Russian Twist",
-                                "description": "",
-                                "img": "",
-                                "link": "",
-                                "userId": 1,
-                                "groupId": 5
-                            },
-                            {
-                                "id": 18,
-                                "name": "Bicycle Crunch",
-                                "description": "",
-                                "img": "",
-                                "link": "",
-                                "userId": 1,
-                                "groupId": 5
-                            },
-                            {
-                                "id": 19,
-                                "name": "The Barbell Squat",
-                                "description": "",
-                                "img": "",
-                                "link": "",
-                                "userId": 1,
-                                "groupId": 6
-                            },
-                            {
-                                "id": 20,
-                                "name": "Romain Deadlift",
-                                "description": "",
-                                "img": "",
-                                "link": "",
-                                "userId": 1,
-                                "groupId": 6
-                            },
-                            {
-                                "id": 21,
-                                "name": "Lunge",
-                                "description": "",
-                                "img": "",
-                                "link": "",
-                                "userId": 1,
-                                "groupId": 6
-                            },
-                            {
-                                "id": 22,
-                                "name": "Seated Leg Curl",
-                                "description": "",
-                                "img": "",
-                                "link": "",
-                                "userId": 1,
-                                "groupId": 6
-                            },
-                            {
-                                "id": 23,
-                                "name": "Lying Leg Curl",
-                                "description": "",
-                                "img": "",
-                                "link": "",
-                                "userId": 1,
-                                "groupId": 6
-                            },
-                            {
-                                "id": 24,
-                                "name": "Standing Calf Raise",
-                                "description": "",
-                                "img": "",
-                                "link": "",
-                                "userId": 1,
-                                "groupId": 6
-                            },
-                            {
-                                "id": 25,
-                                "name": "Seated Calf Raise",
-                                "description": "",
-                                "img": "",
-                                "link": "",
-                                "userId": 1,
-                                "groupId": 6
-                            },
-                            {
-                                "id": 26,
-                                "name": "Jog",
-                                "description": "",
-                                "img": "",
-                                "link": "",
-                                "userId": 1,
-                                "groupId": 7
-                            },
-                            {
-                                "id": 27,
-                                "name": "Lateral Shuffle Taps",
-                                "description": "",
-                                "img": "",
-                                "link": "",
-                                "userId": 1,
-                                "groupId": 7
-                            },
-                            {
-                                "id": 28,
-                                "name": "Sit Outs",
-                                "description": "",
-                                "img": "",
-                                "link": "",
-                                "userId": 1,
-                                "groupId": 7
-                            },
-                            {
-                                "id": 29,
-                                "name": "Jump Rope",
-                                "description": "",
-                                "img": "",
-                                "link": "",
-                                "userId": 1,
-                                "groupId": 7
-                            }
-                ],
-                "userWorkouts": [
-                        {
-                                "id": 1,
-                                "comment": "Love this workout",
-                                "userId": 1,
-                                "workoutId": 1
-                        }
-                ]
-        }
+    "users": [
+      {
+        "firstName": "Joel",
+        "lastName": "Joel",
+        "userName": "Joel",
+        "email": "joel@example.com",
+        "password": "1234",
+        "id": 1
+      },
+      {
+        "firstName": "Jim",
+        "lastName": "Bean",
+        "userName": "Jim",
+        "email": "jim@example.com",
+        "password": "1234",
+        "id": 2
+      },
+      {
+        "firstName": "Jack",
+        "lastName": "Daniels",
+        "userName": "Jack",
+        "email": "jack@example.com",
+        "password": "1234",
+        "id": 3
+      },
+      {
+        "firstName": "Johnny",
+        "lastName": "Walker",
+        "userName": "Johnny",
+        "email": "johnny@example.com",
+        "password": "1234",
+        "id": 4
+      }
+    ],
+    "groups": [
+      {
+        "icon": "abs.png",
+        "label": "Abs",
+        "id": 1
+      },
+      {
+        "icon": "arms.png",
+        "label": "Arms",
+        "id": 2
+      },
+      {
+        "icon": "back.png",
+        "label": "Back",
+        "id": 3
+      },
+      {
+        "icon": "cardio.png",
+        "label": "Cardio",
+        "id": 4
+      },
+      {
+        "icon": "chest.png",
+        "label": "Chest",
+        "id": 5
+      },
+      {
+        "icon": "legs.png",
+        "label": "Legs",
+        "id": 6
+      },
+      {
+        "icon": "shoulders.png",
+        "label": "Shoulders",
+        "id": 7
+      }
+    ],
+    "workouts": [
+      {
+        "id": 1,
+        "name": "Push-Up",
+        "description": "This tried and true exercise is a staple in every soldier's workout routine.  Master this exercise to put some strength in that baby chest.",
+        "img": "",
+        "link": "",
+        "userId": 1,
+        "groupId": 1
+      },
+      {
+        "id": 2,
+        "name": "The Bench Press",
+        "description": "No other chest exercise has made a greater name for itself the Bench Press.  Do these to make some serious gains in those pecs.",
+        "img": "",
+        "link": "",
+        "userId": 1,
+        "groupId": 1
+      },
+      {
+        "id": 3,
+        "name": "Dumbell Fly",
+        "description": "Finish off your chest workout with this great workout.  Dumbell flys encourage strength building and size in the pec muscles",
+        "img": "",
+        "link": "",
+        "userId": 1,
+        "groupId": 1
+      },
+      {
+        "id": 4,
+        "name": "Incline Dumbell Press",
+        "description": "An absolute staple in your chest routine should be the Incline Dumbell Press.  Keep the weights light when beginning and focus on form.",
+        "img": "",
+        "link": "",
+        "userId": 1,
+        "groupId": 1
+      },
+      {
+        "id": 5,
+        "name": "Bent Over Row",
+        "description": "",
+        "img": "",
+        "link": "",
+        "userId": 1,
+        "groupId": 2
+      },
+      {
+        "id": 6,
+        "name": "Lat Pulldown",
+        "description": "",
+        "img": "",
+        "link": "",
+        "userId": 1,
+        "groupId": 2
+      },
+      {
+        "id": 7,
+        "name": "The Deadlift",
+        "description": "",
+        "img": "",
+        "link": "",
+        "userId": 1,
+        "groupId": 2
+      },
+      {
+        "id": 8,
+        "name": "Barbell Row",
+        "description": "",
+        "img": "",
+        "link": "",
+        "userId": 1,
+        "groupId": 2
+      },
+      {
+        "id": 9,
+        "name": "Overhead Barbell Press",
+        "description": "",
+        "img": "",
+        "link": "",
+        "userId": 1,
+        "groupId": 3
+      },
+      {
+        "id": 10,
+        "name": "Standing Shoulder Fly",
+        "description": "",
+        "img": "",
+        "link": "",
+        "userId": 1,
+        "groupId": 3
+      },
+      {
+        "id": 11,
+        "name": "Seated Dumbell Military Press",
+        "description": "",
+        "img": "",
+        "link": "",
+        "userId": 1,
+        "groupId": 3
+      },
+      {
+        "id": 12,
+        "name": "Bicep Dumbell Curl",
+        "description": "",
+        "img": "",
+        "link": "",
+        "userId": 1,
+        "groupId": 4
+      },
+      {
+        "id": 13,
+        "name": "Tricep Dips",
+        "description": "",
+        "img": "",
+        "link": "",
+        "userId": 1,
+        "groupId": 4
+      },
+      {
+        "id": 14,
+        "name": "EZ-Bar Curl",
+        "description": "",
+        "img": "",
+        "link": "",
+        "userId": 1,
+        "groupId": 4
+      },
+      {
+        "id": 15,
+        "name": "Tricep Pushdown",
+        "description": "",
+        "img": "",
+        "link": "",
+        "userId": 1,
+        "groupId": 4
+      },
+      {
+        "id": 16,
+        "name": "Lying Crunch",
+        "description": "",
+        "img": "",
+        "link": "",
+        "userId": 1,
+        "groupId": 5
+      },
+      {
+        "id": 17,
+        "name": "Seated Russian Twist",
+        "description": "",
+        "img": "",
+        "link": "",
+        "userId": 1,
+        "groupId": 5
+      },
+      {
+        "id": 18,
+        "name": "Bicycle Crunch",
+        "description": "",
+        "img": "",
+        "link": "",
+        "userId": 1,
+        "groupId": 5
+      },
+      {
+        "id": 19,
+        "name": "The Barbell Squat",
+        "description": "",
+        "img": "",
+        "link": "",
+        "userId": 1,
+        "groupId": 6
+      },
+      {
+        "id": 20,
+        "name": "Romain Deadlift",
+        "description": "",
+        "img": "",
+        "link": "",
+        "userId": 1,
+        "groupId": 6
+      },
+      {
+        "id": 21,
+        "name": "Lunge",
+        "description": "",
+        "img": "",
+        "link": "",
+        "userId": 1,
+        "groupId": 6
+      },
+      {
+        "id": 22,
+        "name": "Seated Leg Curl",
+        "description": "",
+        "img": "",
+        "link": "",
+        "userId": 1,
+        "groupId": 6
+      },
+      {
+        "id": 23,
+        "name": "Lying Leg Curl",
+        "description": "",
+        "img": "",
+        "link": "",
+        "userId": 1,
+        "groupId": 6
+      },
+      {
+        "id": 24,
+        "name": "Standing Calf Raise",
+        "description": "",
+        "img": "",
+        "link": "",
+        "userId": 1,
+        "groupId": 6
+      },
+      {
+        "id": 25,
+        "name": "Seated Calf Raise",
+        "description": "",
+        "img": "",
+        "link": "",
+        "userId": 1,
+        "groupId": 6
+      },
+      {
+        "id": 26,
+        "name": "Jog",
+        "description": "",
+        "img": "",
+        "link": "",
+        "userId": 1,
+        "groupId": 7
+      },
+      {
+        "id": 27,
+        "name": "Lateral Shuffle Taps",
+        "description": "",
+        "img": "",
+        "link": "",
+        "userId": 1,
+        "groupId": 7
+      },
+      {
+        "id": 28,
+        "name": "Sit Outs",
+        "description": "",
+        "img": "",
+        "link": "",
+        "userId": 1,
+        "groupId": 7
+      },
+      {
+        "id": 29,
+        "name": "Jump Rope",
+        "description": "",
+        "img": "",
+        "link": "",
+        "userId": 1,
+        "groupId": 7
+      },
+      {
+        "name": "The Munkee Phuccer",
+        "description": "Great for apes",
+        "img": null,
+        "link": "http://www.somelink.com",
+        "userId": [],
+        "groupId": null,
+        "id": 30
+      }
+    ],
+    "userWorkouts": [
+      {
+        "id": 1,
+        "comment": "Love this workout",
+        "userId": 1,
+        "workoutId": 1
+      }
+    ]
+  }

@@ -35,46 +35,51 @@
   ],
   "groups": [
     {
-      "name": "chest",
-      "img": "",
-      "id": 1
-    },
-    {
-      "name": "back",
-      "img": "",
-      "id": 2
-    },
-    {
-      "name": "shoulders",
-      "img": "",
-      "id": 3
-    },
-    {
-      "name": "arms",
-      "img": "",
-      "id": 4
-    },
-    {
-      "name": "abs",
-      "img": "",
+      "icon": "abs.png",
+      "label": "Abs",
       "id": 5
     },
     {
-      "name": "legs",
-      "img": "",
+      "icon": "arms.png",
+      "label": "Arms",
+      "id": 2
+    },
+    {
+      "icon": "back.png",
+      "label": "Back",
+      "id": 2
+    },
+    {
+      "icon": "cardio.png",
+      "label": "Cardio",
+      "id": 7
+    },
+    {
+      "icon": "chest.png",
+      "label": "Chest",
+      "id": 1
+    },
+    {
+      "icon": "legs.png",
+      "label": "Legs",
       "id": 6
     },
     {
-      "name": "cardio",
-      "img": "",
-      "id": 7
+      "icon": "shoulders.png",
+      "label": "Shoulders",
+      "id": 3
+    },
+    {
+      "icon": "Add",
+      "label": "Add Workout",
+      "id": 8
     }
   ],
   "workouts": [
     {
       "id": 1,
       "name": "Push-Up",
-      "description": "",
+      "description": "This tried and true exercise is a staple in every soldier's workout routine.  Master this exercise to put some strength in that baby chest.",
       "img": "",
       "link": "",
       "userId": 1,
@@ -83,7 +88,7 @@
     {
       "id": 2,
       "name": "The Bench Press",
-      "description": "",
+      "description": "No other chest exercise has made a greater name for itself the Bench Press.  Do these to make some serious gains in those pecs.",
       "img": "",
       "link": "",
       "userId": 1,
@@ -92,7 +97,7 @@
     {
       "id": 3,
       "name": "Dumbell Fly",
-      "description": "",
+      "description": "Finish off your chest workout with this great workout.  Dumbell flys encourage strength building and size in the pec muscles",
       "img": "",
       "link": "",
       "userId": 1,
@@ -101,7 +106,7 @@
     {
       "id": 4,
       "name": "Incline Dumbell Press",
-      "description": "",
+      "description": "An absolute staple in your chest routine should be the Incline Dumbell Press.  Keep the weights light when beginning and focus on form.",
       "img": "",
       "link": "",
       "userId": 1,
@@ -155,15 +160,6 @@
     {
       "id": 10,
       "name": "Standing Shoulder Fly",
-      "description": "",
-      "img": "",
-      "link": "",
-      "userId": 1,
-      "groupId": 3
-    },
-    {
-      "id": 11,
-      "name": "Seated Dumbell Military Press",
       "description": "",
       "img": "",
       "link": "",
@@ -333,13 +329,31 @@
       "groupId": 7
     },
     {
-      "name": " The Funky Chicken 2",
-      "description": " I hate this workout",
-      "img": " image.jpg",
-      "link": " something.com",
-      "userId": " 1",
-      "groupId": " 5",
+      "name": "Ali the great",
+      "description": "my good friend",
+      "img": "www.aliabusamra.com",
+      "link": "http://www.somelink.com",
+      "userId": [],
+      "groupId": null,
       "id": 30
+    },
+    {
+      "name": "New Test",
+      "description": "This is a test",
+      "img": "www.image.org",
+      "link": "http://www.somelink.com",
+      "userId": [],
+      "groupId": null,
+      "id": 31
+    },
+    {
+      "name": "mother",
+      "description": "cocksucker",
+      "img": "fucking",
+      "link": "ass hat",
+      "userId": "",
+      "groupId": 6,
+      "id": 32
     }
   ],
   "userWorkouts": [

@@ -9,6 +9,10 @@ export default {
                 return fetch(`${URL}/workouts?groupId=${id}`)
                         .then(data => data.json())
         },
+        getWorkoutById(id) {
+                return fetch(`${URL}/workouts?id=${id}`)
+                        .then(data => data.json())
+        },
         deleteWorkout(id) {
                 return fetch(`${URL}/workouts/${id}`, {
                         method: "DELETE",

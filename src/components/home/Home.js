@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from "react-router-dom"
-import Menu from '../menu/Menu'
+// import { Link } from "react-router-dom"
 import WorkoutContainer from './WorkoutContainer';
 
 export default class Home extends Component {

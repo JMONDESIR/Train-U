@@ -3,10 +3,10 @@ import React, { Component } from 'react'
 export default class GroupDetail extends Component {
         render() {
                 return (
-                        <section className="animal">
-                                <div className="card w-50 pa3 bg-light-red">
-                                        <div className="card-body">
-                                                <p className="card-title b">
+                        <section className="">
+                                <div className="">
+                                        <div className="">
+                                                <p className="">
                                                         {this.props.home.name}
                                                         Testing
                                                 </p>

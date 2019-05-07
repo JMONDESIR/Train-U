@@ -1,17 +1,22 @@
 import React, { Component } from 'react'
-import ApplicationViews from './ApplicationViews'
-import NavBar from "./nav/NavBar"
+// import NavBar from "./nav/NavBar"
 import LogIn from "./auth/LogIn"
 import GroupManager from "../modules/GroupManager"
+import ApplicationViews from './ApplicationViews';
+
 export default class Trainer extends Component {
 
         state = {
-                userAuthorized: false
+                userAuthorized: true
         }
+
         handleUserAuth = user => {
-                console.log(user)
                 GroupManager.getAllUsers().then(res => {
-                        const exists = res.filter(currentUser => currentUser.userName === user.userName && currentUser.password === user.password)
+                        const exists =
+                                res.filter(currentUser =>
+                                        currentUser.userName === user.userName
+                                        && currentUser.password === user.password
+                                )
                         if (exists.length > 0) {
                                 sessionStorage.setItem(
                                         "credentials",
@@ -27,11 +32,11 @@ export default class Trainer extends Component {
                         }
                 })
         }
+
         render() {
                 if (this.state.userAuthorized) {
                         return (
                                 <React.Fragment>
-                                        <NavBar />
                                         <ApplicationViews />
                                 </React.Fragment>
                         )
