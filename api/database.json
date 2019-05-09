@@ -42,7 +42,7 @@
     {
       "icon": "arms.png",
       "label": "Arms",
-      "id": 2
+      "id": 4
     },
     {
       "icon": "back.png",
@@ -78,15 +78,6 @@
   "workouts": [
     {
       "id": 1,
-      "name": "Push-Up",
-      "description": "This tried and true exercise is a staple in every soldier's workout routine.  Master this exercise to put some strength in that baby chest.",
-      "img": "",
-      "link": "",
-      "userId": 1,
-      "groupId": 1
-    },
-    {
-      "id": 2,
       "name": "The Bench Press",
       "description": "No other chest exercise has made a greater name for itself the Bench Press.  Do these to make some serious gains in those pecs.",
       "img": "",
@@ -95,7 +86,7 @@
       "groupId": 1
     },
     {
-      "id": 3,
+      "id": 2,
       "name": "Dumbell Fly",
       "description": "Finish off your chest workout with this great workout.  Dumbell flys encourage strength building and size in the pec muscles",
       "img": "",
@@ -104,7 +95,7 @@
       "groupId": 1
     },
     {
-      "id": 4,
+      "id": 3,
       "name": "Incline Dumbell Press",
       "description": "An absolute staple in your chest routine should be the Incline Dumbell Press.  Keep the weights light when beginning and focus on form.",
       "img": "",
@@ -113,7 +104,7 @@
       "groupId": 1
     },
     {
-      "id": 5,
+      "id": 4,
       "name": "Bent Over Row",
       "description": "",
       "img": "",
@@ -122,7 +113,7 @@
       "groupId": 2
     },
     {
-      "id": 6,
+      "id": 5,
       "name": "Lat Pulldown",
       "description": "",
       "img": "",
@@ -131,7 +122,7 @@
       "groupId": 2
     },
     {
-      "id": 7,
+      "id": 6,
       "name": "The Deadlift",
       "description": "",
       "img": "",
@@ -140,16 +131,7 @@
       "groupId": 2
     },
     {
-      "id": 8,
-      "name": "Barbell Row",
-      "description": "",
-      "img": "",
-      "link": "",
-      "userId": 1,
-      "groupId": 2
-    },
-    {
-      "id": 9,
+      "id": 7,
       "name": "Overhead Barbell Press",
       "description": "",
       "img": "",
@@ -158,7 +140,7 @@
       "groupId": 3
     },
     {
-      "id": 10,
+      "id": 8,
       "name": "Standing Shoulder Fly",
       "description": "",
       "img": "",
@@ -167,25 +149,25 @@
       "groupId": 3
     },
     {
-      "id": 12,
-      "name": "Bicep Dumbell Curl",
+      "id": 9,
+      "name": "Seated Dumbell Military Press",
       "description": "",
       "img": "",
       "link": "",
       "userId": 1,
-      "groupId": 4
+      "groupId": 3
     },
     {
-      "id": 13,
-      "name": "Tricep Dips",
+      "name": "Dumbell Curl",
       "description": "",
-      "img": "",
+      "img": "https://3.imimg.com/data3/WB/EG/MY-15733773/dumbbell-biceps-curl-250x250.jpg",
       "link": "",
       "userId": 1,
-      "groupId": 4
+      "groupId": 4,
+      "id": 10
     },
     {
-      "id": 14,
+      "id": 11,
       "name": "EZ-Bar Curl",
       "description": "",
       "img": "",
@@ -194,7 +176,7 @@
       "groupId": 4
     },
     {
-      "id": 15,
+      "id": 12,
       "name": "Tricep Pushdown",
       "description": "",
       "img": "",
@@ -203,79 +185,52 @@
       "groupId": 4
     },
     {
-      "id": 16,
       "name": "Lying Crunch",
-      "description": "",
-      "img": "",
+      "description": "Keeping your knees bent, grab the rope with your palms facing inward and pull up to your head. ... Slowly crunch up using your abs, so that your shoulders are up off of the floor, and reach up as much as possible towards your knees until you feel a stretch.",
+      "img": "http://www.yukokusamurai.com/data/archive/preview/img/34569977.png",
       "link": "",
       "userId": 1,
-      "groupId": 5
+      "groupId": 5,
+      "id": 13
     },
     {
-      "id": 17,
       "name": "Seated Russian Twist",
-      "description": "",
+      "description": "This classic move targets your obliques, and adding a dumbbell or medicine ball increases the challenge. Holding a dumbbell in both hands, sit on the ground with your knees bent and your heels about a foot from your butt.",
       "img": "",
       "link": "",
       "userId": 1,
-      "groupId": 5
+      "groupId": 5,
+      "id": 14
+    },
+    {
+      "name": "Bicycle Crunch",
+      "description": "A great way to target the rectus abdominis and the obliques in one easy exercise! Six-pack, here you come! Share This Link Copy. Here's how: Lie flat on the floor with your lower back pressed to the ground (pull your navel in to also target your deep abs).",
+      "img": "",
+      "link": "",
+      "userId": 1,
+      "groupId": 5,
+      "id": 15
+    },
+    {
+      "name": "The Barbell Squat",
+      "description": "In strength training and fitness, the squat is a compound, full-body exercise that trains primarily the muscles of the thighs, hips and buttocks, quadriceps femoris muscle, hamstrings, as well as strengthening the bones, ligaments and insertion of the tendons throughout the lower body.",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSk0x0gTOpUI_DC6UwwyYkr4LetePVPgGT0ZvGGCgYjAQUp4PXi",
+      "link": "",
+      "userId": 1,
+      "groupId": 6,
+      "id": 16
+    },
+    {
+      "name": "Lunge",
+      "description": "A lunge can refer to any position of the human body where one leg is positioned forward with knee bent and foot flat on the ground while the other leg is positioned behind. It is used by athletes in cross-training for sports, by weight-trainers as a fitness exercise, and by yogis as part of an asana regimen.",
+      "img": "",
+      "link": "",
+      "userId": 1,
+      "groupId": 6,
+      "id": 17
     },
     {
       "id": 18,
-      "name": "Bicycle Crunch",
-      "description": "",
-      "img": "",
-      "link": "",
-      "userId": 1,
-      "groupId": 5
-    },
-    {
-      "id": 19,
-      "name": "The Barbell Squat",
-      "description": "",
-      "img": "",
-      "link": "",
-      "userId": 1,
-      "groupId": 6
-    },
-    {
-      "id": 20,
-      "name": "Romain Deadlift",
-      "description": "",
-      "img": "",
-      "link": "",
-      "userId": 1,
-      "groupId": 6
-    },
-    {
-      "id": 21,
-      "name": "Lunge",
-      "description": "",
-      "img": "",
-      "link": "",
-      "userId": 1,
-      "groupId": 6
-    },
-    {
-      "id": 22,
-      "name": "Seated Leg Curl",
-      "description": "",
-      "img": "",
-      "link": "",
-      "userId": 1,
-      "groupId": 6
-    },
-    {
-      "id": 23,
-      "name": "Lying Leg Curl",
-      "description": "",
-      "img": "",
-      "link": "",
-      "userId": 1,
-      "groupId": 6
-    },
-    {
-      "id": 24,
       "name": "Standing Calf Raise",
       "description": "",
       "img": "",
@@ -284,16 +239,7 @@
       "groupId": 6
     },
     {
-      "id": 25,
-      "name": "Seated Calf Raise",
-      "description": "",
-      "img": "",
-      "link": "",
-      "userId": 1,
-      "groupId": 6
-    },
-    {
-      "id": 26,
+      "id": 19,
       "name": "Jog",
       "description": "",
       "img": "",
@@ -302,7 +248,7 @@
       "groupId": 7
     },
     {
-      "id": 27,
+      "id": 20,
       "name": "Lateral Shuffle Taps",
       "description": "",
       "img": "",
@@ -311,7 +257,7 @@
       "groupId": 7
     },
     {
-      "id": 28,
+      "id": 21,
       "name": "Sit Outs",
       "description": "",
       "img": "",
@@ -320,48 +266,23 @@
       "groupId": 7
     },
     {
-      "id": 29,
-      "name": "Jump Rope",
-      "description": "",
-      "img": "",
-      "link": "",
+      "id": 22,
+      "name": "Test Cardio Workout",
+      "description": "Test Workout for adding, deleting and editing",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxhCRyLKyMaSPh4RewkvUpuYaL3XEQ__5Shgkae9zUFRW1F55gAQ",
+      "link": "soon to add",
       "userId": 1,
       "groupId": 7
     },
     {
-      "name": "Ali the great",
-      "description": "my good friend",
-      "img": "www.aliabusamra.com",
-      "link": "http://www.somelink.com",
-      "userId": [],
-      "groupId": null,
-      "id": 30
-    },
-    {
-      "name": "New Test",
-      "description": "This is a test",
-      "img": "www.image.org",
-      "link": "http://www.somelink.com",
-      "userId": [],
-      "groupId": null,
-      "id": 31
-    },
-    {
-      "name": "mother",
-      "description": "cocksucker",
-      "img": "fucking",
-      "link": "ass hat",
-      "userId": "",
-      "groupId": 6,
-      "id": 32
+      "name": "Test Chest Workout 2",
+      "description": "Here's an edit",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAMKWbK47l6BSq8Alz-XsyfZXor7S39DmVKduxcRQxB3Mm4Q6l1g",
+      "link": "soon to add",
+      "userId": 1,
+      "groupId": 1,
+      "id": 23
     }
   ],
-  "userWorkouts": [
-    {
-      "id": 1,
-      "comment": "Love this workout",
-      "userId": 1,
-      "workoutId": 1
-    }
-  ]
+  "userWorkouts": []
 }

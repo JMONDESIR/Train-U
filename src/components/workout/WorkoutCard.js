@@ -21,6 +21,7 @@ const styles = {
         },
 };
 
+
 function ImgMediaCard(props) {
         const { classes } = props;
         return (
@@ -31,11 +32,11 @@ function ImgMediaCard(props) {
                                         alt="Contemplative Reptile"
                                         className={classes.media}
                                         height="140"
-                                        image="https://via.placeholder.com/250"
+                                        image={props.workout.img ? props.workout.img:"https://via.placeholder.com/250"}
                                         title="Contemplative Reptile"
                                 />
                                 <CardContent>
-                                        <Typography gutterBottom component="h5" >
+                                        <Typography gutterBottom component="h5" className="fw7" >
                                                 {props.workout.name}
                                         </Typography>
                                         <Typography component="p">
@@ -44,10 +45,10 @@ function ImgMediaCard(props) {
                                 </CardContent>
                         </CardActionArea>
                         <CardActions>
-                                <Button onClick={()=> props.handleDelete(props.workout.id)} size="small" color="primary">
+                                <Button onClick={() => props.handleDelete(props.workout.id) } size="small" color="primary">
                                         Delete
         </Button>
-                                <Button onClick={()=> props.handleEdit(props.workout.id)} size="small" color="primary">
+                                <Button onClick={() => props.handleEdit(props.workout.id)} size="small" color="primary">
                                         Edit workout
         </Button>
                         </CardActions>

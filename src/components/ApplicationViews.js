@@ -1,9 +1,6 @@
-import { Route } from 'react-router-dom'
 import React, { Component } from "react"
 import GroupManager from "../modules/GroupManager"
-import SignUp from './auth/SignUp';
 import Drawer from './Drawer'
-import CreateExercise from "../components/profile/CreateExercise"
 export default class ApplicationViews extends Component {
 
     state = {
@@ -11,6 +8,7 @@ export default class ApplicationViews extends Component {
         groups: [],
         workouts: [],
         userWorkouts: [],
+        toggleStateChange: false
     }
 
     componentDidMount() {
@@ -26,8 +24,6 @@ export default class ApplicationViews extends Component {
             this.setState({
                 workouts: workouts
             })
-            console.log(this.state.workouts)
-            this.forceUpdate()
         })
     }
 
@@ -41,8 +37,9 @@ export default class ApplicationViews extends Component {
             )
     }
 
-    handleDelete = id => {
-        GroupManager.deleteWorkout(id).then(() => GroupManager.getWorkoutByMuscleGroup(id))
+    handleDelete = (id) => {
+        // both fetch calls cannot use the same "id" parameter
+        GroupManager.deleteWorkout(id).then(() => GroupManager.getWorkoutByMuscleGroup(this.state.workouts[0].groupId))
             .then(workouts => {
                 this.setState({
                     workouts: workouts
@@ -50,34 +47,28 @@ export default class ApplicationViews extends Component {
             })
     }
 
-    handleEdit = id => {
-        console.log(id)
-    }
-
-    openCreateExerciseForm = () => {
-        console.log("clicked")
+    // This function will be called by the child component and get the selected workout id from it
+    getUpdatedWorkouts = (id) => {
+        GroupManager.getWorkoutByMuscleGroup(id)
+            .then(workouts => {
+                this.setState({
+                    workouts: workouts
+                })
+            })
     }
 
     render() {
         return (
             <React.Fragment>
                 <Drawer
+                    getUpdatedWorkouts={this.getUpdatedWorkouts}
+                    toggleStateChange={this.state.toggleStateChange}
                     navList={this.state.groups}
                     handleClick={this.handleClick}
                     workouts={this.state.workouts}
                     handleDelete={this.handleDelete}
                     handleEdit={this.handleEdit}
                     openCreateExerciseForm={this.openCreateExerciseForm}
-                />
-                <Route
-                    path="/profile" render={props => {
-                        return <SignUp {...props} />
-                    }}
-                />
-                <Route
-                    path="/exercise/new" render={props => {
-                        return <CreateExercise {...props} />
-                    }}
                 />
             </React.Fragment>
         )

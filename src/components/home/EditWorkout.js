@@ -6,18 +6,6 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import CreateExerciseForm from "./CreateExerciseForm"
 export default class FormDialog extends React.Component {
 
-    state = {
-        open: false,
-    };
-
-    handleClickOpen = () => {
-        this.setState({ open: true });
-    };
-
-    handleClose = () => {
-        this.setState({ open: false });
-    };
-
     render() {
         return (
             <div>
@@ -29,10 +17,10 @@ export default class FormDialog extends React.Component {
                     <DialogTitle id="form-dialog-title">TRAIN - U</DialogTitle>
                     <DialogContent>
                         <DialogContentText>
-                            Enter your workout information
+                            Edit this workout
             </DialogContentText>
 
-                        <CreateExerciseForm isEdit={false} workout={{}} handleClose={this.props.handleClose} />
+                        <CreateExerciseForm getUpdatedWorkouts={this.props.getUpdatedWorkouts} isEdit={true} workout={this.props.workout} handleClose={this.props.handleEditClose} />
                     </DialogContent>
                 </Dialog>
             </div>

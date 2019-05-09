@@ -21,6 +21,7 @@ import Icon from '@material-ui/core/Icon';
 import AddIcon from '@material-ui/icons/Add';
 import WorkoutCard from './workout/WorkoutCard';
 import AddWorkout from "./home/AddWorkout"
+import EditWorkout from "./home/EditWorkout"
 
 const drawerWidth = 240;
 
@@ -87,9 +88,12 @@ const styles = theme => ({
 });
 
 class MiniDrawer extends React.Component {
+
     state = {
         openDrawer: false,
         openDialog: false,
+        editWorkout: false,
+        selectedWorkout: {},
     }
 
     handleDrawerOpen = () => {
@@ -113,13 +117,28 @@ class MiniDrawer extends React.Component {
     }
     handleClickOpen = () => {
         this.setState({ openDialog: true });
-    };
+    }
 
     handleClose = () => {
         this.setState({ openDialog: false });
-    };
+    }
     addWorkout = () => {
         this.setState({ openDialog: true })
+    }
+    handleEdit = id => {
+        const selectedWorkout = this.props.workouts.filter(workout => workout.id === id)
+        this.setState({
+            editWorkout: true,
+            selectedWorkout: selectedWorkout[0]
+        }, () => console.log(this.state))
+    }
+
+    handleEditClose = () => {
+        this.setState({ editWorkout: false });
+    }
+
+    getUpdatedWorkouts = () => {
+        this.props.getUpdatedWorkouts(this.state.selectedWorkout.groupId)
     }
 
     render() {
@@ -204,10 +223,11 @@ class MiniDrawer extends React.Component {
                 </Drawer>
                 <main className={classes.content}>
                     <div className={classes.toolbar} />
-                    {this.props.workouts.map((workout, i) => <WorkoutCard handleDelete={this.handleDelete} workout={workout} key={i} />
-
+                    {this.props.workouts.map((workout, i) => <WorkoutCard handleEdit={this.handleEdit} handleDelete={this.handleDelete} workout={workout} key={i} />
                     )}
                     <AddWorkout handleClose={this.handleClose} open={this.state.openDialog} />
+                    <EditWorkout getUpdatedWorkouts={this.getUpdatedWorkouts} workout={this.state.selectedWorkout} handleEditClose={this.handleEditClose} handleClose={this.handleClose} open={this.state.editWorkout} />
+
 
                 </main>
             </div >

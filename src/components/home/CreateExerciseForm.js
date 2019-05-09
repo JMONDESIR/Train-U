@@ -28,13 +28,14 @@ const styles = theme => ({
 class OutlinedTextFields extends React.Component {
 
     state = {
-        userId: "",
-        image: "",
+        userId: this.props.isEdit === true ? this.props.workout.userId : "",
+        img: this.props.isEdit === true ? this.props.workout.img : "",
         groups: [],
-        exerciseName: "",
-        description: "",
-        groupId: 0,
-        link: ""
+        name: this.props.isEdit === true ? this.props.workout.name : "",
+        description: this.props.isEdit === true ? this.props.workout.description : "",
+        groupId: this.props.isEdit === true ? this.props.workout.groupId : 0,
+        link: this.props.isEdit === true ? this.props.workout.link : "",
+        id: this.props.isEdit === true ? this.props.workout.id : 0
     }
 
     componentDidMount() {
@@ -54,6 +55,7 @@ class OutlinedTextFields extends React.Component {
     }
 
     handleChange = event => {
+        console.log(event.target.name, event.target.value)
         this.setState({ [event.target.name]: event.target.value });
     }
 
@@ -63,9 +65,9 @@ class OutlinedTextFields extends React.Component {
             window.alert("Please select a group");
         } else {
             const workout = {
-                name: this.state.exerciseName,
+                name: this.state.name,
                 description: this.state.description,
-                img: this.state.image,
+                img: this.state.img,
                 link: this.state.link,
                 userId: this.state.userId,
                 groupId: this.state.groupId
@@ -74,16 +76,36 @@ class OutlinedTextFields extends React.Component {
         }
     }
 
+    updateExercise = evt => {
+        evt.preventDefault();
+        if (this.state.groupId === "") {
+            window.alert("Please select a group");
+        } else {
+            const workout = {
+                name: this.state.name,
+                description: this.state.description,
+                img: this.state.img,
+                link: this.state.link,
+                userId: this.state.userId,
+                groupId: this.state.groupId,
+                id: this.state.id
+            }
+            GroupManager.updateWorkout(workout)
+                .then(() => this.props.getUpdatedWorkouts()
+                )
+                .then(() => this.props.handleClose())
+        }
+    }
+
     render() {
         const { classes } = this.props;
-
         return (
             <div>
                 <form className={classes.container} noValidate autoComplete="off">
 
                     <TextField
-                        id="exerciseName"
-                        htmlFor="exerciseName"
+                        id="name"
+                        htmlFor="name"
                         label="Name"
                         style={{ margin: 8 }}
                         placeholder="Enter exercise name"
@@ -93,9 +115,10 @@ class OutlinedTextFields extends React.Component {
                         InputLabelProps={{
                             shrink: true,
                         }}
+                        defaultValue={this.state.name}
                     />
                     <TextField
-                        id="image"
+                        id="img"
                         label="Image"
                         style={{ margin: 8 }}
                         placeholder="Add image URL"
@@ -105,6 +128,7 @@ class OutlinedTextFields extends React.Component {
                         InputLabelProps={{
                             shrink: true,
                         }}
+                        defaultValue={this.state.img}
                     />
                     <TextField
                         id="description"
@@ -118,6 +142,7 @@ class OutlinedTextFields extends React.Component {
                         InputLabelProps={{
                             shrink: true,
                         }}
+                        defaultValue={this.state.description}
                     />
                     <TextField
                         id="link"
@@ -131,23 +156,20 @@ class OutlinedTextFields extends React.Component {
                         InputLabelProps={{
                             shrink: true,
                         }}
+                        defaultValue={this.state.link}
                     />
                     <TextField
                         id="groupId"
                         select
                         label="Muscle Group"
                         className={classes.textField}
-                        value={this.state.groups}
+                        value={this.state.groupId}
                         onChange={this.handleChange}
                         SelectProps={{
                             MenuProps: {
                                 className: classes.menu,
                             },
                         }}
-                        inputProps={{
-                            name: 'age',
-                            id: 'age-simple',
-                          }}
                         helperText="Select the muscle group"
                         margin="normal"
                         variant="outlined"
@@ -159,19 +181,17 @@ class OutlinedTextFields extends React.Component {
                             </MenuItem>
                         ))}
                     </TextField>
-                    {/* <Button variant="contained" color="primary" className="button" onClick={this.newExercise}>
-                    Add Workout
-      </Button> */}
+
 
 
                 </form>
-                <div>                                    <DialogActions>
+                <div><DialogActions>
                     <Button onClick={this.props.handleClose} color="primary">
                         Cancel
             </Button>
-                    <Button onClick={this.newExercise} color="primary">
-                        Create
-            </Button>
+                    <Button onClick={this.props.isEdit ? this.updateExercise : this.newExercise} color="primary">
+                        {this.props.isEdit ? "Update" : "Create"}
+                    </Button>
                 </DialogActions></div>
             </div>
         );
@@ -182,4 +202,4 @@ OutlinedTextFields.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(OutlinedTextFields);
+export default withStyles(styles)(OutlinedTextFields)
