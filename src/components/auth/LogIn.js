@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import TextField from '@material-ui/core/TextField';
 
 export default class LogIn extends Component {
 
@@ -23,32 +25,41 @@ export default class LogIn extends Component {
                         <div className="flex flex-column justify-center mt4-l mt0 w-30 mr-auto ml-auto">
                                 <div className="_loginForm">
                                         <form className="flex flex-column ">
-                                                <div className="w-100 flex flex-column pa3">
-                                                        <label htmlFor="userName">Username</label>
-                                                        <input onChange={this.handleFieldChange}
-                                                                id="userName"
-                                                                type="text"
-                                                                placeholder="Username"
-                                                                className="pa2 outline-0 _customInput"
-                                                        />
-                                                </div>
 
-                                                <div className="flex flex-column pa3">
-                                                        <label htmlFor="password">Password</label>
-                                                        <input onChange={this.handleFieldChange}
-                                                                id="password"
-                                                                type="password"
-                                                                placeholder="Password"
-                                                                className="pa2 outline-0 _customInput"
-                                                        />
-                                                </div>
+                                                <TextField
+                                                        id="userName"
+                                                        htmlFor="userName"
+                                                        label="User Name"
+                                                        style={{ margin: 8 }}
+                                                        placeholder="Get ready..."
+                                                        variant="outlined"
+                                                        onChange={this.handleFieldChange}
+                                                        InputLabelProps={{
+                                                                shrink: true,
+                                                        }}
+                                                        defaultValue={this.state.name}
+                                                />
+
+                                                <TextField
+                                                        id="password"
+                                                        htmlFor="password"
+                                                        type="password"
+                                                        label="Password"
+                                                        style={{ margin: 8 }}
+                                                        placeholder="Get set..."
+                                                        variant="outlined"
+                                                        onChange={this.handleFieldChange}
+                                                        InputLabelProps={{
+                                                                shrink: true,
+                                                        }}
+                                                        defaultValue={this.state.name}
+                                                />
 
                                                 <div className="pa3 mb4 flex justify-center">
-                                                        <button className="_button-traverse pointer pt1 pb1 pl2 pr2 mr1" onClick={this.handleLogin} >
-                                                                Login
-              </button>
-                                                        <button
-                                                                className="_button-traverse pointer pt1 pb1 pl2 pr2">Signup</button>
+                                                        <button className="pointer pt1 pb1 pl2 pr2 mr1" onClick={this.handleLogin} >GO!</button>
+                                                        <Link
+                                                                to="/signup"
+                                                                className="pointer pt1 pb1 pl2 pr2">Signup</Link>
                                                 </div>
                                         </form>
                                 </div>

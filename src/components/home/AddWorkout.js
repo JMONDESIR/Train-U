@@ -18,6 +18,8 @@ export default class FormDialog extends React.Component {
         this.setState({ open: false });
     };
 
+    getUpdatedWorkouts = (id) => this.props.getUpdatedWorkouts(id)
+
     render() {
         return (
             <div>
@@ -32,7 +34,7 @@ export default class FormDialog extends React.Component {
                             Enter your workout information
             </DialogContentText>
 
-                        <CreateExerciseForm isEdit={false} workout={{}} handleClose={this.props.handleClose} />
+                        <CreateExerciseForm getUpdatedWorkouts={this.getUpdatedWorkouts} isEdit={false} workout={{}} handleClose={this.props.handleClose} />
                     </DialogContent>
                 </Dialog>
             </div>

@@ -25,10 +25,13 @@ const styles = theme => ({
     },
 });
 
+const user = JSON.parse(sessionStorage.getItem("credentials"))
+
 class OutlinedTextFields extends React.Component {
 
+
     state = {
-        userId: this.props.isEdit === true ? this.props.workout.userId : "",
+        userId: this.props.isEdit === true ? this.props.workout.userId : user.id,
         img: this.props.isEdit === true ? this.props.workout.img : "",
         groups: [],
         name: this.props.isEdit === true ? this.props.workout.name : "",
@@ -50,7 +53,6 @@ class OutlinedTextFields extends React.Component {
     handleFieldChange = (event) => {
         const stateToChange = {};
         stateToChange[event.target.id] = event.target.value;
-        console.log(stateToChange)
         this.setState(stateToChange);
     }
 
@@ -72,7 +74,8 @@ class OutlinedTextFields extends React.Component {
                 userId: this.state.userId,
                 groupId: this.state.groupId
             }
-            GroupManager.addWorkout(workout).then(() => this.props.handleClose())
+            GroupManager.addWorkout(workout).then(() => this.props.getUpdatedWorkouts(workout.groupId)
+            ).then(() => this.props.handleClose())
         }
     }
 
@@ -98,6 +101,8 @@ class OutlinedTextFields extends React.Component {
     }
 
     render() {
+
+        const filteredGroups = this.state.groups.filter(group => group.icon !== "Add")
         const { classes } = this.props;
         return (
             <div>
@@ -175,7 +180,7 @@ class OutlinedTextFields extends React.Component {
                         variant="outlined"
                         name="groupId"
                     >
-                        {this.state.groups.map((group, i) => (
+                        {filteredGroups.map((group, i) => (
                             <MenuItem key={i} id="groupId" value={group.id} option={group.label}>
                                 {group.label}
                             </MenuItem>

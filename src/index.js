@@ -5,10 +5,11 @@ import Trainer from './components/Trainer'
 import './index.css';
 import 'tachyons'
 import 'tachyons/css/tachyons.css'
+import history from './history'
 
 
 ReactDOM.render(
-  <Router>
+  <Router history={history}>
     <Trainer />
   </Router>
   , document.getElementById('root'))

@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
-// import NavBar from "./nav/NavBar"
 import LogIn from "./auth/LogIn"
 import GroupManager from "../modules/GroupManager"
 import ApplicationViews from './ApplicationViews';
+import { BrowserRouter as Router, Route, } from "react-router-dom"
+import SignUp from './auth/SignUp';
 
 export default class Trainer extends Component {
 
         state = {
-                userAuthorized: true
+                userAuthorized: false,
         }
 
         handleUserAuth = user => {
@@ -33,19 +34,37 @@ export default class Trainer extends Component {
                 })
         }
 
+        handleSignOut = () => {
+                sessionStorage.clear()
+                this.setState({
+                        userAuthorized: false
+                })
+        }
+
         render() {
                 if (this.state.userAuthorized) {
                         return (
                                 <React.Fragment>
-                                        <ApplicationViews />
+                                        <ApplicationViews handleSignOut={this.handleSignOut} />
                                 </React.Fragment>
                         )
                 } else {
                         return (
-                                <React.Fragment>
-                                        <LogIn handleUserAuth={this.handleUserAuth} />
-                                </React.Fragment>
+                                <Router>
+                                        <Route
+                                                exact path="/" render={props => {
+                                                        if (this.state.userAuthorized) {
+                                                                return <ApplicationViews {...props} />
+                                                        } else {
+                                                                return <LogIn handleUserAuth={this.handleUserAuth} />
+                                                        }
+                                                }}
+                                        />
+                                        <Route exact path='/signup' component={SignUp} />
+                                </Router>
                         )
                 }
+
         }
 }
+

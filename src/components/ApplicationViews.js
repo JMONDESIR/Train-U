@@ -7,22 +7,28 @@ export default class ApplicationViews extends Component {
         users: [],
         groups: [],
         workouts: [],
-        userWorkouts: [],
-        toggleStateChange: false
+        toggleStateChange: false,
+        iconClicked: false,
+        currentUser: {}
     }
 
+    // ===Get and set muscle groups===//
     componentDidMount() {
+        const user = sessionStorage.getItem("credentials")
         GroupManager.getAll().then(groups => {
             this.setState({
-                groups: groups
+                groups: groups,
+                currentUser: JSON.parse(user)
             })
         })
     }
 
+// ===get's the workouts by group for child components/icons
     handleClick = id => {
         GroupManager.getWorkoutByMuscleGroup(id).then(workouts => {
             this.setState({
-                workouts: workouts
+                workouts: workouts,
+                iconClicked: true
             })
         })
     }
@@ -69,6 +75,9 @@ export default class ApplicationViews extends Component {
                     handleDelete={this.handleDelete}
                     handleEdit={this.handleEdit}
                     openCreateExerciseForm={this.openCreateExerciseForm}
+                    iconClicked={this.state.iconClicked}
+                    currentUser={this.state.currentUser}
+                    handleSignOut={this.props.handleSignOut}
                 />
             </React.Fragment>
         )
