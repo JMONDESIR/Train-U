@@ -1,6 +1,6 @@
+// Add/Edit workout
 import React from 'react';
 import PropTypes from 'prop-types';
-// import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
@@ -25,16 +25,20 @@ const styles = theme => ({
     },
 });
 
+const user = JSON.parse(sessionStorage.getItem("credentials"))
+
 class OutlinedTextFields extends React.Component {
 
+    // is the props being passed from the "Edit" form? (isEdit=true)  If so, use stored DB information, else, render blank fields
     state = {
-        userId: "",
-        image: "",
+        userId: this.props.isEdit === true ? this.props.workout.userId : user.id,
+        img: this.props.isEdit === true ? this.props.workout.img : "",
         groups: [],
-        exerciseName: "",
-        description: "",
-        groupId: 0,
-        link: ""
+        name: this.props.isEdit === true ? this.props.workout.name : "",
+        description: this.props.isEdit === true ? this.props.workout.description : "",
+        groupId: this.props.isEdit === true ? this.props.workout.groupId : 0,
+        link: this.props.isEdit === true ? this.props.workout.link : "",
+        id: this.props.isEdit === true ? this.props.workout.id : 0
     }
 
     componentDidMount() {
@@ -49,10 +53,10 @@ class OutlinedTextFields extends React.Component {
     handleFieldChange = (event) => {
         const stateToChange = {};
         stateToChange[event.target.id] = event.target.value;
-        console.log(stateToChange)
         this.setState(stateToChange);
     }
 
+    // handleChange function copied from the Kenel exercise stricktly to populate the selected group name
     handleChange = event => {
         this.setState({ [event.target.name]: event.target.value });
     }
@@ -63,27 +67,52 @@ class OutlinedTextFields extends React.Component {
             window.alert("Please select a group");
         } else {
             const workout = {
-                name: this.state.exerciseName,
+                name: this.state.name,
                 description: this.state.description,
-                img: this.state.image,
+                img: this.state.img,
                 link: this.state.link,
                 userId: this.state.userId,
                 groupId: this.state.groupId
             }
-            GroupManager.addWorkout(workout).then(() => this.props.handleClose())
+            GroupManager.addWorkout(workout).then(() => this.props.getUpdatedWorkouts(workout.groupId)
+            ).then(() => this.props.handleClose())
+        }
+    }
+
+    updateExercise = evt => {
+        // prevents a redirect/action on submit
+        evt.preventDefault();
+
+        if (this.state.groupId === "") {
+            window.alert("Please select a muscle group");
+        } else {
+            const workout = {
+                name: this.state.name,
+                description: this.state.description,
+                img: this.state.img,
+                link: this.state.link,
+                userId: this.state.userId,
+                groupId: this.state.groupId,
+                id: this.state.id
+            }
+            GroupManager.updateWorkout(workout)
+                .then(() => this.props.getUpdatedWorkouts()
+                )
+                .then(() => this.props.handleClose())
         }
     }
 
     render() {
-        const { classes } = this.props;
 
+        const filteredGroups = this.state.groups.filter(group => group.icon !== "Add")
+        const { classes } = this.props;
         return (
             <div>
                 <form className={classes.container} noValidate autoComplete="off">
 
                     <TextField
-                        id="exerciseName"
-                        htmlFor="exerciseName"
+                        id="name"
+                        htmlFor="name"
                         label="Name"
                         style={{ margin: 8 }}
                         placeholder="Enter exercise name"
@@ -93,9 +122,10 @@ class OutlinedTextFields extends React.Component {
                         InputLabelProps={{
                             shrink: true,
                         }}
+                        defaultValue={this.state.name}
                     />
                     <TextField
-                        id="image"
+                        id="img"
                         label="Image"
                         style={{ margin: 8 }}
                         placeholder="Add image URL"
@@ -105,6 +135,7 @@ class OutlinedTextFields extends React.Component {
                         InputLabelProps={{
                             shrink: true,
                         }}
+                        defaultValue={this.state.img}
                     />
                     <TextField
                         id="description"
@@ -118,6 +149,7 @@ class OutlinedTextFields extends React.Component {
                         InputLabelProps={{
                             shrink: true,
                         }}
+                        defaultValue={this.state.description}
                     />
                     <TextField
                         id="link"
@@ -131,47 +163,42 @@ class OutlinedTextFields extends React.Component {
                         InputLabelProps={{
                             shrink: true,
                         }}
+                        defaultValue={this.state.link}
                     />
                     <TextField
                         id="groupId"
                         select
                         label="Muscle Group"
                         className={classes.textField}
-                        value={this.state.groups}
+                        value={this.state.groupId}
                         onChange={this.handleChange}
                         SelectProps={{
                             MenuProps: {
                                 className: classes.menu,
                             },
                         }}
-                        inputProps={{
-                            name: 'age',
-                            id: 'age-simple',
-                          }}
                         helperText="Select the muscle group"
                         margin="normal"
                         variant="outlined"
                         name="groupId"
                     >
-                        {this.state.groups.map((group, i) => (
+                        {filteredGroups.map((group, i) => (
                             <MenuItem key={i} id="groupId" value={group.id} option={group.label}>
                                 {group.label}
                             </MenuItem>
                         ))}
                     </TextField>
-                    {/* <Button variant="contained" color="primary" className="button" onClick={this.newExercise}>
-                    Add Workout
-      </Button> */}
+
 
 
                 </form>
-                <div>                                    <DialogActions>
+                <div><DialogActions>
                     <Button onClick={this.props.handleClose} color="primary">
                         Cancel
             </Button>
-                    <Button onClick={this.newExercise} color="primary">
-                        Create
-            </Button>
+                    <Button onClick={this.props.isEdit ? this.updateExercise : this.newExercise} color="primary">
+                        {this.props.isEdit ? "Update" : "Create"}
+                    </Button>
                 </DialogActions></div>
             </div>
         );
@@ -182,4 +209,4 @@ OutlinedTextFields.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(OutlinedTextFields);
+export default withStyles(styles)(OutlinedTextFields)

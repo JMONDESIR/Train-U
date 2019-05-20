@@ -1,15 +1,17 @@
 import React, { Component } from 'react'
-// import NavBar from "./nav/NavBar"
 import LogIn from "./auth/LogIn"
 import GroupManager from "../modules/GroupManager"
 import ApplicationViews from './ApplicationViews';
+import { BrowserRouter as Router, Route, } from "react-router-dom"
+import SignUp from './auth/SignUp';
 
-export default class Trainer extends Component {
+export default class Main extends Component {
 
         state = {
-                userAuthorized: true
+                userAuthorized: false,
         }
 
+// filter is returning username and password of authorized user and comparing to user provided username and password
         handleUserAuth = user => {
                 GroupManager.getAllUsers().then(res => {
                         const exists =
@@ -33,19 +35,40 @@ export default class Trainer extends Component {
                 })
         }
 
+// TODO add comments here about session storage temination
+        handleSignOut = () => {
+                sessionStorage.clear()
+                this.setState({
+                        userAuthorized: false
+                })
+        }
+
+// This is called a "truthy statement", as it assumes to condition is true
         render() {
                 if (this.state.userAuthorized) {
                         return (
                                 <React.Fragment>
-                                        <ApplicationViews />
+                                        <ApplicationViews handleSignOut={this.handleSignOut} />
                                 </React.Fragment>
                         )
                 } else {
                         return (
-                                <React.Fragment>
-                                        <LogIn handleUserAuth={this.handleUserAuth} />
-                                </React.Fragment>
+                                <Router>
+                                        <Route
+                                                exact path="/" render={props => {
+                                                        if (this.state.userAuthorized) {
+                                                                return <ApplicationViews {...props} />
+                                                        } else {
+                                                                return <LogIn handleUserAuth={this.handleUserAuth} />
+                                                        }
+                                                }}
+                                        />
+                                        <Route exact path='/signup' component={SignUp} />
+                                </Router>
                         )
                 }
+
         }
 }
+
+// App

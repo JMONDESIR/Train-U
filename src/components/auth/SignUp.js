@@ -1,88 +1,93 @@
 import React, { Component } from 'react'
 import GroupManager from "../../modules/GroupManager"
+import TextField from '@material-ui/core/TextField';
+import { withRouter } from 'react-router-dom'
 
-export default class SignUp extends Component {
+class SignUp extends Component {
 
         state = {
-                firstname: [],
-                lastname: [],
-                username: [],
-                email: [],
-                password:[]
+                userName: "",
+                email: "",
+                password: ""
+        }
+
+        handleFieldChange = (evt) => {
+                const stateToChange = {}
+                stateToChange[evt.target.id] = evt.target.value
+                this.setState(stateToChange)
         }
 
         newUser = evt => {
+                console.log(this.state)
                 evt.preventDefault();
-                if (this.state.firstname === "") {
-                        window.alert("Enter your first name");
+                if (this.state.userName === "") {
+                        window.alert("You must enter a user name");
                 } else {
                         const user = {
-                                firstname: this.state.firstname,
-                                lastname: this.state.lastname,
-                                username: this.state.username,
+                                userName: this.state.userName,
                                 email: this.state.email,
                                 password: this.state.password
                         }
                         GroupManager
                                 .addUser(user)
-                                .then(() => this.props.history.push("/user/new"));
                 }
+                this.props.history.push('/')
         }
+
         render() {
                 return (
-                        <form>
-                                <div>
-                                        <label htmlFor="firstName">First Name</label>
-                                        <input
-                                                type="text"
-                                                required
-                                                id="firstName"
-                                                placeholder="Enter your first name"
-                                                onChange={this.handleFieldChange}
-                                        />
+                        <div className="flex flex-column justify-center mt4-l mt0 w-30 mr-auto ml-auto">
+                                <div className="_loginForm">
+                                        <form className="flex flex-column ">
+
+                                                <TextField
+                                                        id="userName"
+                                                        htmlFor="userName"
+                                                        label="User Name"
+                                                        style={{ margin: 8 }}
+                                                        placeholder="Create a user name"
+                                                        variant="outlined"
+                                                        onChange={this.handleFieldChange}
+                                                        InputLabelProps={{
+                                                                shrink: true,
+                                                        }}
+                                                        defaultValue={this.state.userName}
+                                                />
+
+                                                <TextField
+                                                        id="email"
+                                                        htmlFor="email"
+                                                        label="email address"
+                                                        style={{ margin: 8 }}
+                                                        placeholder="Enter your email address"
+                                                        variant="outlined"
+                                                        onChange={this.handleFieldChange}
+                                                        InputLabelProps={{
+                                                                shrink: true,
+                                                        }}
+                                                        defaultValue={this.state.email}
+                                                />
+
+                                                <TextField
+                                                        id="password"
+                                                        type="password"
+                                                        htmlFor="password"
+                                                        label="Password"
+                                                        style={{ margin: 8 }}
+                                                        placeholder="Create a password"
+                                                        variant="outlined"
+                                                        onChange={this.handleFieldChange}
+                                                        InputLabelProps={{
+                                                                shrink: true,
+                                                        }}
+                                                        defaultValue={this.state.password}
+                                                />
+                                                <button type="submit" className="pointer pt1 pb1 pl2 pr2 mr1" onClick={this.newUser} >Submit</button>
+                                        </form>
                                 </div>
-                                <div>
-                                        <label htmlFor="lastName">Last Name</label>
-                                        <input
-                                                type="text"
-                                                required
-                                                id="lastName"
-                                                placeholder="Enter your last name"
-                                                onChange={this.handleFieldChange}
-                                        />
-                                </div>
-                                <div>
-                                        <label htmlFor="userName">User Name</label>
-                                        <input
-                                                type="text"
-                                                required
-                                                id="userName"
-                                                placeholder="Create a user name"
-                                                onChange={this.handleFieldChange}
-                                        />
-                                </div>
-                                <div>
-                                        <label htmlFor="email">Email Address</label>
-                                        <input
-                                                type="text"
-                                                required
-                                                id="email"
-                                                placeholder="Enter your email address"
-                                                onChange={this.handleFieldChange}
-                                        />
-                                </div>
-                                <div>
-                                        <label htmlFor="password">Password</label>
-                                        <input
-                                                type="text"
-                                                required
-                                                id="password"
-                                                placeholder="Create a password"
-                                                onChange={this.handleFieldChange}
-                                        />
-                                </div>
-                                <button type="submit" onClick={this.newUser}>Submit</button>
-                        </form>
+                        </div>
                 )
         }
 }
+
+export default withRouter(SignUp)
