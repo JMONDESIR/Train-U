@@ -65,6 +65,18 @@
       "email": "jisie@example.com",
       "password": "1234",
       "id": 15
+    },
+    {
+      "userName": "Jagermeister",
+      "email": "Jagermeister@example.com",
+      "password": "1234",
+      "id": 16
+    },
+    {
+      "userName": "Amy",
+      "email": "amy@example.com",
+      "password": "1234",
+      "id": 17
     }
   ],
   "groups": [
@@ -296,7 +308,7 @@
       "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxhCRyLKyMaSPh4RewkvUpuYaL3XEQ__5Shgkae9zUFRW1F55gAQ",
       "link": "soon to add",
       "userId": 1,
-      "groupId": 4,
+      "groupId": 3,
       "id": 22
     },
     {
@@ -319,7 +331,7 @@
     },
     {
       "name": "Jameson's Cardio Bussa'",
-      "description": "",
+      "description": "Jameson breaks the treadmills",
       "img": "",
       "link": "",
       "userId": 5,
@@ -332,8 +344,17 @@
       "img": "",
       "link": "",
       "userId": 2,
-      "groupId": 2,
+      "groupId": 5,
       "id": 32
+    },
+    {
+      "name": "Jim's pushups",
+      "description": "I like pushups",
+      "img": "",
+      "link": "",
+      "userId": 2,
+      "groupId": 1,
+      "id": 33
     }
   ]
 }

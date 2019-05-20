@@ -1,20 +1,21 @@
+// Main
 import React, { Component } from "react"
 import GroupManager from "../modules/GroupManager"
 import Drawer from './Drawer'
 export default class ApplicationViews extends Component {
 
     state = {
-        users: [],
         groups: [],
         workouts: [],
-        toggleStateChange: false,
         iconClicked: false,
         currentUser: {}
     }
 
     // ===Get and set muscle groups===//
     componentDidMount() {
+        // user gets the current user object from session storge
         const user = sessionStorage.getItem("credentials")
+
         GroupManager.getAll().then(groups => {
             this.setState({
                 groups: groups,
@@ -23,7 +24,7 @@ export default class ApplicationViews extends Component {
         })
     }
 
-// ===get's the workouts by group for child components/icons
+    // ===gets the workouts by group for child components/icons
     handleClick = id => {
         GroupManager.getWorkoutByMuscleGroup(id).then(workouts => {
             this.setState({
@@ -67,19 +68,24 @@ export default class ApplicationViews extends Component {
         return (
             <React.Fragment>
                 <Drawer
-                    getUpdatedWorkouts={this.getUpdatedWorkouts}
-                    toggleStateChange={this.state.toggleStateChange}
+                    // data
                     navList={this.state.groups}
-                    handleClick={this.handleClick}
                     workouts={this.state.workouts}
+                    currentUser={this.state.currentUser}
+
+                    // click handlers
+                    getUpdatedWorkouts={this.getUpdatedWorkouts}
+                    iconClicked={this.state.iconClicked}
+                    handleClick={this.handleClick}
                     handleDelete={this.handleDelete}
                     handleEdit={this.handleEdit}
                     openCreateExerciseForm={this.openCreateExerciseForm}
-                    iconClicked={this.state.iconClicked}
-                    currentUser={this.state.currentUser}
+                    // this.props is passing prop FROM main.js to handle sign out
                     handleSignOut={this.props.handleSignOut}
                 />
             </React.Fragment>
         )
     }
 }
+
+// Drawer

@@ -5,12 +5,13 @@ import ApplicationViews from './ApplicationViews';
 import { BrowserRouter as Router, Route, } from "react-router-dom"
 import SignUp from './auth/SignUp';
 
-export default class Trainer extends Component {
+export default class Main extends Component {
 
         state = {
                 userAuthorized: false,
         }
 
+// filter is returning username and password of authorized user and comparing to user provided username and password
         handleUserAuth = user => {
                 GroupManager.getAllUsers().then(res => {
                         const exists =
@@ -34,6 +35,7 @@ export default class Trainer extends Component {
                 })
         }
 
+// TODO add comments here about session storage temination
         handleSignOut = () => {
                 sessionStorage.clear()
                 this.setState({
@@ -41,6 +43,7 @@ export default class Trainer extends Component {
                 })
         }
 
+// This is called a "truthy statement", as it assumes to condition is true
         render() {
                 if (this.state.userAuthorized) {
                         return (
@@ -68,3 +71,4 @@ export default class Trainer extends Component {
         }
 }
 
+// App

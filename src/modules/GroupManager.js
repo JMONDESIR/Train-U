@@ -38,7 +38,7 @@ export default {
                         },
                         body: JSON.stringify(editedWorkout)
                 })
-        }, ///////////////////////////////////////
+        },
         getAllUsers() {
                 return fetch(`${URL}/users`)
                         .then(data => data.json())

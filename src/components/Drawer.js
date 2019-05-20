@@ -1,3 +1,4 @@
+// App
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -19,12 +20,12 @@ import ListItemText from '@material-ui/core/ListItemText';
 import AccountIcon from '@material-ui/icons/AccountCircle';
 import Icon from '@material-ui/core/Icon';
 import AddIcon from '@material-ui/icons/Add';
-import WorkoutCard from './workout/WorkoutCard';
-import AddWorkout from "./home/AddWorkout"
-import EditWorkout from "./home/EditWorkout"
+import WorkoutCard from "./WorkoutCard"
+import AddWorkout from "./forms/AddWorkout"
+import EditWorkout from "./forms/EditWorkout"
 import PowerSettingsNew from '@material-ui/icons/PowerSettingsNewRounded';
 
-const drawerWidth = 240;
+const drawerWidth = 200;
 
 const styles = theme => ({
     root: {
@@ -91,6 +92,7 @@ const styles = theme => ({
 class MiniDrawer extends React.Component {
 
     state = {
+        // dialog/form
         openDrawer: false,
         openDialog: false,
         editWorkout: false,
@@ -120,20 +122,17 @@ class MiniDrawer extends React.Component {
         this.props.handleDelete(id)
     }
 
-    handleEdit = (id) => {
-        this.props.handleEdit(id)
-    }
-
     openCreateExerciseForm = () => {
         this.props.openCreateExerciseForm()
     }
 
     handleEdit = id => {
         const selectedWorkout = this.props.workouts.filter(workout => workout.id === id)
+        // edit workout opens the form/dialog and selectedWorkout pre-populates the form with data from state
         this.setState({
             editWorkout: true,
             selectedWorkout: selectedWorkout[0]
-        }, () => console.log(this.state))
+        })
     }
 
     handleEditClose = () => {
@@ -270,3 +269,7 @@ MiniDrawer.propTypes = {
 }
 
 export default withStyles(styles, { withTheme: true })(MiniDrawer);
+
+// Edit
+// Add
+// Card

@@ -1,6 +1,6 @@
+// Add/Edit workout
 import React from 'react';
 import PropTypes from 'prop-types';
-// import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
@@ -29,7 +29,7 @@ const user = JSON.parse(sessionStorage.getItem("credentials"))
 
 class OutlinedTextFields extends React.Component {
 
-
+    // is the props being passed from the "Edit" form? (isEdit=true)  If so, use stored DB information, else, render blank fields
     state = {
         userId: this.props.isEdit === true ? this.props.workout.userId : user.id,
         img: this.props.isEdit === true ? this.props.workout.img : "",
@@ -56,8 +56,8 @@ class OutlinedTextFields extends React.Component {
         this.setState(stateToChange);
     }
 
+    // handleChange function copied from the Kenel exercise stricktly to populate the selected group name
     handleChange = event => {
-        console.log(event.target.name, event.target.value)
         this.setState({ [event.target.name]: event.target.value });
     }
 
@@ -80,9 +80,11 @@ class OutlinedTextFields extends React.Component {
     }
 
     updateExercise = evt => {
+        // prevents a redirect/action on submit
         evt.preventDefault();
+
         if (this.state.groupId === "") {
-            window.alert("Please select a group");
+            window.alert("Please select a muscle group");
         } else {
             const workout = {
                 name: this.state.name,

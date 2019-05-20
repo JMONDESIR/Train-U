@@ -1,13 +1,15 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+// Drawer
+
+import React from '../../node_modules/react';
+import PropTypes from '../../node_modules/prop-types';
+import { withStyles } from '../../node_modules/@material-ui/core/styles';
+import Card from '../../node_modules/@material-ui/core/Card';
+import CardActionArea from '../../node_modules/@material-ui/core/CardActionArea';
+import CardActions from '../../node_modules/@material-ui/core/CardActions';
+import CardContent from '../../node_modules/@material-ui/core/CardContent';
+import CardMedia from '../../node_modules/@material-ui/core/CardMedia';
+import Button from '../../node_modules/@material-ui/core/Button';
+import Typography from '../../node_modules/@material-ui/core/Typography';
 
 const styles = {
     card: {
@@ -21,7 +23,6 @@ const styles = {
     },
 };
 
-
 function ImgMediaCard(props) {
     const { classes } = props;
     return (
@@ -32,8 +33,8 @@ function ImgMediaCard(props) {
                     alt="Gym patron"
                     className={classes.media}
                     height="140"
+                    // testing the value of the image prop
                     image={props.workout.img ? props.workout.img : "https://via.placeholder.com/250"}
-                    // title="Contemplative Reptile"
                 />
                 <CardContent>
                     <Typography gutterBottom component="h5" className="fw7" >
@@ -59,7 +60,7 @@ function ImgMediaCard(props) {
                 : <div />}
 
         </Card>
-    );
+    )
 }
 
 ImgMediaCard.propTypes = {
